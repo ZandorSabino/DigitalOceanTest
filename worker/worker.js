@@ -47,7 +47,6 @@ function start(id) {
   // LinkedIn
   const linkedinQueue = new Queue("linkedin-profile", REDIS_URL);
   linkedinQueue.process("linkedin", async function (job, done) {
-    calculatePrimes(450, 10000000000);
     done(null, "Importado perfil do LinkedIn com sucesso");
   });
   linkedinQueue.on("completed", (job, result) => {
@@ -57,7 +56,6 @@ function start(id) {
   // CV
   const cvQueue = new Queue("cv-extraction", REDIS_URL);
   cvQueue.process("cv-extraction", async function (job, done) {
-    calculatePrimes(1000, 10000000000);
     done(null, "PDF processado com sucesso!");
   });
 
