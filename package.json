@@ -23,7 +23,7 @@
     "path-to-regexp": "^6.2.0",
     "throng": "^5.0.0"
   },
-  "engines" : { 
-      "node" : "16.13.2" 
+  "engines": {
+    "node": "16.13.2"
   }
 }
