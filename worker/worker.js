@@ -1,27 +1,8 @@
 let throng = require("throng");
 let Queue = require("bull");
 
-function calculatePrimes(iterations, multiplier) {
-  var primes = [];
-  for (var i = 0; i < iterations; i++) {
-    var candidate = i * (multiplier * Math.random());
-    var isPrime = true;
-    for (var c = 2; c <= Math.sqrt(candidate); ++c) {
-      if (candidate % c === 0) {
-        // not prime
-        isPrime = false;
-        break;
-      }
-    }
-    if (isPrime) {
-      primes.push(candidate);
-    }
-  }
-  return primes;
-}
-
 // Connect to a local redis instance locally, and the Heroku-provided URL in production
-let REDIS_URL = process.env.REDIS_URL || "redis://127.0.0.1:6379";
+let REDIS_URL = process.env.REDIS_URL //|| "redis://127.0.0.1:6379";
 
 // Spin up multiple processes to handle jobs to take advantage of more CPU cores
 // See: https://devcenter.heroku.com/articles/node-concurrency for more info
