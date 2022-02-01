@@ -18,8 +18,8 @@ export default async (
 
   const url = await s3Client.getSignedUrlPromise("getObject", params);
 
-  await linkedinQueue.add("linkedin", { data: "perfil-do-linkedin" });
-  await cvQueue.add("cv-extraction", { data: "cv" });
+  // await linkedinQueue.add("linkedin", { data: "perfil-do-linkedin" });
+  // await cvQueue.add("cv-extraction", { data: "cv" });
 
   res.statusCode = 200;
   return url;
