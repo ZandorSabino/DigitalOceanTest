@@ -38,7 +38,8 @@ Deploy in Digital Ocean
         BUCKETEER_BUCKET_NAME
         BUCKETEER_ENDPOINT
         ```
-
+    Make migrations.
+    Create one contact in Database.
 TODOS
  - [ ] Connect worker in REDIS, redis tested with manual connection.
  - [ ] Link async functions after REDIS connected.
