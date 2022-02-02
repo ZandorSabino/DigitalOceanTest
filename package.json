@@ -17,10 +17,11 @@
     "@prisma/client": "3.8.1",
     "async-busboy": "^1.1.0",
     "aws-sdk": "^2.1064.0",
-    "bull": "^4.4.0",
     "express": "^4.17.2",
     "formidable": "v3",
+    "kue": "^0.11.6",
     "path-to-regexp": "^6.2.0",
+    "redis": "^3.1.2",
     "throng": "^5.0.0"
   },
   "engines": {
