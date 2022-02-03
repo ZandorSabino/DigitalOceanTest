@@ -25,10 +25,13 @@ export default async (
     })
     .promise();
 
+  console.log("---->", response);
+
+  // const response = { ETag: "askdad" };
   if (response.ETag) {
     res.statusCode = 200;
     return response.ETag;
   } else {
-    return null;
+    return "TESTE";
   }
 };

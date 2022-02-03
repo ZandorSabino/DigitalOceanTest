@@ -9,7 +9,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     ports:
-      - '5438:5432'     
+      - '5432:5432'     
 
   redis:
     image: redis:6
@@ -30,28 +30,28 @@ services:
       - "MINIO_ROOT_PASSWORD=minioadmin"
     
 
-  app:
-    image: node:16
-    command: sh -c "yarn install && yarn dev"
-    ports:
-      - 8080:8080
-      - 5555:5555
-    working_dir: /app
-    volumes:
-      - ./:/app
-    environment:
-      - PORT=8080
-      - REDIS_URL=redis://redis:6379
-      - STORAGE_ACCESS_KEY_ID=minioadmin
-      - STORAGE_SECRET_ACCESS_KEY=minioadmin
-      - STORAGE_NAME=jorgeana-js
-      - STORAGE_ENDPOINT=http://minio:9000/
+  # app:
+  #   image: node:16
+  #   command: sh -c "yarn install && yarn dev"
+  #   ports:
+  #     - 8080:8080
+  #     - 5555:5555
+  #   working_dir: /app
+  #   volumes:
+  #     - ./:/app
+  #   environment:
+  #     - PORT=8080
+  #     - REDIS_URL=redis://redis:6379
+  #     - STORAGE_ACCESS_KEY_ID=minioadmin
+  #     - STORAGE_SECRET_ACCESS_KEY=minioadmin
+  #     - STORAGE_NAME=jorgeana-js
+  #     - STORAGE_ENDPOINT=http://minio:9000/
 
-  worker:
-    image: node:16
-    working_dir: /app
-    volumes:
-      - ./worker:/app
-    command: sh -c "yarn install && yarn start"
-    environment:
-      - REDIS_URL=redis://redis:6379
+  # worker:
+  #   image: node:16
+  #   working_dir: /app
+  #   volumes:
+  #     - ./worker:/app
+  #   command: sh -c "yarn install && yarn start"
+  #   environment:
+  #     - REDIS_URL=redis://redis:6379
