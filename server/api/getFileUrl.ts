@@ -13,11 +13,11 @@ export default async (
 
   const params = {
     Key: body.key,
-    Bucket: process.env.BUCKETEER_BUCKET_NAME,
+    Bucket: process.env.STORAGE_NAME,
   };
 
   const url = await s3Client.getSignedUrlPromise("getObject", params);
-  
+  /*
   const jobLinkedin = linkedinQueue.create('linkedin', { data: "perfil-do-linkedin" }).save(function(err){
     if( !err ) console.log('Criado o Job linkedin', jobLinkedin.id );
   });
@@ -25,7 +25,7 @@ export default async (
   const jobCv = cvQueue.create('cv', { data: "perfil-extraction" }).save(function(err){
     if( !err ) console.log('Criado o Job perfil-extraction', jobCv.id );
   });
-
+*/
   res.statusCode = 200;
   return url;
 };

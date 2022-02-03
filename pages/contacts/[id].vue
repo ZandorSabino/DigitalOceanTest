@@ -3,7 +3,7 @@ import { uploadToBucket, getFileUrl } from "~/helpers";
 
 const route = useRoute();
 
-const { data } = await useFetch(`/api/contact/${route.params.id}`);
+// const { data } = await useFetch(`/api/contact/${route.params.id}`);
 
 const cv = ref(null);
 const keywords = ref(null);
@@ -20,9 +20,9 @@ async function getCv() {
   }
 }
 
-onMounted(() => {
-  getCv();
-});
+//onMounted(() => {
+//  getCv();
+//});
 
 const toBase64 = (file): Promise<string | ArrayBuffer> =>
   new Promise((resolve, reject) => {
@@ -63,18 +63,18 @@ const handleFileUpload = async () => {
 
 <template>
   <main>
-    <h2>{{ data.name }}</h2>
+    <!--<h2>{{ data.name }}</h2>-->
     <div>
       Keywords encontradas:
       <ul>
-        <li v-for="(tag, index) in data.tags" :key="index">{{ tag }}</li>
+        <!--<li v-for="(tag, index) in data.tags" :key="index">{{ tag }}</li>-->
       </ul>
     </div>
     <div>
       <input ref="cv" v-on:change="handleFileUpload" type="file" />
       <label>Buscar Keywords:</label>
       <input ref="keywords" type="text" />
-      <button @click="updateCv" :disabled="buscando">BUSCA</button>
+      <!--<button @click="updateCv" :disabled="buscando">BUSCA</button>-->
     </div>
     <iframe width="640" height="480" :src="cvUrl"></iframe>
   </main>

@@ -1,9 +1,9 @@
 {
   "private": true,
   "scripts": {
-    "dev": "nuxi dev",
+    "dev": "npx prisma migrate dev --schema prisma/schema.prisma && nuxi dev",
     "build": "nuxi build",
-    "start": "node .output/server/index.mjs"
+    "start": "npx prisma migrate deploy --schema prisma/schema.prisma && node .output/server/index.mjs"
   },
   "devDependencies": {
     "@types/async-busboy": "^1.1.1",

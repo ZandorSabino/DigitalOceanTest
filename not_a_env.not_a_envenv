@@ -1,0 +1,6 @@
+# DATABASE_URL=postgresql://db:s8BJDHunUeKnozjf@app-5a77a775-25e4-4fbe-a759-7dd669bdb573-do-user-10735511-0.b.db.ondigitalocean.com:25060/db?sslmode=require
+# REDIS_URL=rediss://default:3tjfwxeHJGLgEEUt@db-redis-tor1-57664-do-user-10735511-0.b.db.ondigitalocean.com:25061
+# STORAGE_ACCESS_KEY_ID=FZGZGIXOFRL6UIE4NH6U
+# STORAGE_SECRET_ACCESS_KEY=F8D+P4b9VqsKQqh5d2MZu6s8xaPw26eWZ2KRlKzGwps
+# STORAGE_NAME=jorgeana-fs
+# STORAGE_ENDPOINT=https://sfo3.digitaloceanspaces.com

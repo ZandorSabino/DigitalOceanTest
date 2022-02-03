@@ -33,10 +33,10 @@ Deploy in Digital Ocean
         ```
         REDIS_URL
         DATABASE_URL
-        BUCKETEER_AWS_ACCESS_KEY_ID
-        BUCKETEER_AWS_SECRET_ACCESS_KEY
-        BUCKETEER_BUCKET_NAME
-        BUCKETEER_ENDPOINT
+        STORAGE_ACCESS_KEY_ID
+        STORAGE_SECRET_ACCESS_KEY
+        STORAGE_NAME
+        STORAGE_ENDPOINT
         ```
     Make migrations.
     Create one contact in Database.

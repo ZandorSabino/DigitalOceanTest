@@ -10,17 +10,5 @@ datasource db {
 model Contacts {
   id   String   @id @default(uuid())
   name String   @unique
-  tags String[] @unique
-}
-
-model User {
-  id           String    @id @default(uuid())
-  identifier   String    @unique @db.VarChar
-  username     String    @db.VarChar
-  email        String    @unique
-  password     String    @unique
-  created_at   DateTime  @default(now()) @db.Timestamptz(6)
-  updated_at   DateTime  @default(now()) @db.Timestamptz(6)
-  deleted_at   DateTime? @db.Timestamptz(6)
-  display_name String?   @db.VarChar
+  tags String[]
 }

@@ -12,7 +12,7 @@ export default async (
 
   const params = {
     Key: body.key,
-    Bucket: process.env.BUCKETEER_BUCKET_NAME,
+    Bucket: process.env.STORAGE_NAME,
     Body: fileDecoded,
     ContentType: "application/pdf",
   };
