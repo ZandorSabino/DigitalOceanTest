@@ -17,21 +17,13 @@ export default async (
     ContentType: "application/pdf",
   };
 
-  const response = await s3Client
-    .putObject(params, function put(err, data) {
-      if (err) {
-        return;
-      }
-    })
-    .promise();
+  const response = await s3Client.putObject(params, function put(err, data) {
+    if (err) {
+      return;
+    }
+  });
 
-  console.log("---->", response);
+  res.statusCode = 200;
 
-  // const response = { ETag: "askdad" };
-  if (response.ETag) {
-    res.statusCode = 200;
-    return response.ETag;
-  } else {
-    return "TESTE";
-  }
+  return "ACK";
 };
