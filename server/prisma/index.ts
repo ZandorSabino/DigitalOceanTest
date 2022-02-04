@@ -1,4 +1,7 @@
 import Prisma from '@prisma/client'
+import dotenv from 'dotenv'
+
+dotenv.config();
 
 const { PrismaClient } = Prisma;
 const isDev = !(process.env.NODE_ENV === "production");

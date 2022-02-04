@@ -1,16 +1,20 @@
-import * as redis from 'redis'
-import * as kue from 'kue'
 import dotenv from "dotenv";
+import Redis from "ioredis";
 
+import { Queue, RedisOptions } from "bullmq";
 
 dotenv.config();
 
-const { REDIS_URL } = process.env;
+console.log(process.env.REDIS_URL);
+const connection = new Redis(process.env.REDIS_URL, <RedisOptions>{
+  maxRetriesPerRequest: null,
+  enableReadyCheck: false,
+});
 
+export const linkedinQueue = new Queue("linkedin-profile", {
+  connection: connection,
+});
 
-export const linkedinQueue = kue.createQueue({
-    Prefix: 'linkedin', 
-    redis: {createClientFactory: () => redis.createClient( process.env.REDIS_URL, 
-        {tls: true}),
-    },
+export const resumeQueue = new Queue("resume-parse", {
+  connection: connection,
 });

@@ -1,9 +1,9 @@
 {
   "private": true,
   "scripts": {
-    "dev": "npx prisma migrate dev --schema prisma/schema.prisma && nuxi dev",
+    "dev": "npx prisma migrate dev && nuxi dev",
     "build": "nuxi build",
-    "start": "npx prisma migrate deploy --schema prisma/schema.prisma && node .output/server/index.mjs"
+    "start": "npx prisma migrate deploy && node .output/server/index.mjs"
   },
   "devDependencies": {
     "@types/async-busboy": "^1.1.1",
@@ -17,9 +17,9 @@
     "@prisma/client": "3.8.1",
     "async-busboy": "^1.1.0",
     "aws-sdk": "^2.1064.0",
+    "bullmq": "^1.68.3",
     "express": "^4.17.2",
-    "formidable": "v3",
-    "kue": "^0.11.6",
+    "ioredis": "^4.28.4",
     "path-to-regexp": "^6.2.0",
     "redis": "^3.1.2",
     "throng": "^5.0.0"

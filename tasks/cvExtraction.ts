@@ -1,15 +1,21 @@
 import dotenv from "dotenv";
-import * as redis from 'redis'
-import * as kue from 'kue'
+import Redis from "ioredis";
+
+import { Queue, RedisOptions } from "bullmq";
 
 
 dotenv.config();
 
 const { REDIS_URL } = process.env;
 
-export const cvQueue = kue.createQueue({
-  Prefix: 'cv', 
-  redis: {createClientFactory: () => redis.createClient(process.env.REDIS_URL, 
-      {tls: true}),
-  },
+const connection = new Redis(process.env.REDIS_URL, <RedisOptions>{
+  maxRetriesPerRequest: null,
+  enableReadyCheck: false,
 });
+
+
+export const resumeQueue = new Queue("resume-parse", {
+  connection: connection,
+});
+
+
