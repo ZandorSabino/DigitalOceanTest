@@ -1,0 +1,57 @@
+version: "3.7"
+
+
+services:
+  postgres:
+    image: postgres:13
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5432:5432'     
+
+  redis:
+    image: redis:6
+    restart: always
+    ports:
+      - '6379:6379'
+    command: redis-server
+
+  minio:
+    image: minio/minio
+    entrypoint: sh
+    ports: 
+      - '9000:9000'
+      - '40185:40185'
+    command: -c 'mkdir -p /export/jorgeana-fs && minio server --console-address ":40185" /export '
+    environment:
+      - "MINIO_ROOT_USER=minioadmin"
+      - "MINIO_ROOT_PASSWORD=minioadmin"
+    
+
+  # app:
+  #   image: node:16
+  #   command: sh -c "yarn install && yarn dev"
+  #   ports:
+  #     - 8080:8080
+  #     - 5555:5555
+  #   working_dir: /app
+  #   volumes:
+  #     - ./:/app
+  #   environment:
+  #     - PORT=8080
+  #     - REDIS_URL=redis://redis:6379
+  #     - STORAGE_ACCESS_KEY_ID=minioadmin
+  #     - STORAGE_SECRET_ACCESS_KEY=minioadmin
+  #     - STORAGE_NAME=jorgeana-fs
+  #     - STORAGE_ENDPOINT=http://minio:9000/
+
+  # worker:
+  #   image: node:16
+  #   working_dir: /app
+  #   volumes:
+  #     - ./worker:/app
+  #   command: sh -c "yarn install && yarn start"
+  #   environment:
+  #     - REDIS_URL=redis://redis:6379
